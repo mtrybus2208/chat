@@ -1,0 +1,12 @@
+.idea/
+.vscode/settings.json
+.nyc_output/ 
+/vagrant/node_modules/
+node_modules/  
+/log/
+/coverage
+/importData
+
+.env-dev
+.DS_store
+yarn-error.log 
