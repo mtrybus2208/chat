@@ -1,10 +1,16 @@
-import { Controller, Param, Body, Get, Post, Put, Delete } from 'routing-controllers';
+import { JsonController, Param, Body, Get, Post, Put, Delete, HttpCode } from 'routing-controllers';
 
 import { ErrorGenerator } from '../lib/errorHandling/ErrorGenerator';
 import { invalidDataInformation } from '../lib/errorHandling/errorMessage';
+import { UserService } from '../service/user/user.service';
+import { UserDataMapper } from '../dataMapper/user/user.dataMapper';
+import { User } from '../entity/user/user.entity';
+import { UserDto } from '../dto/user/user.dto';
 
-@Controller()
+@JsonController()
 export class UsersController {
+  constructor(private readonly userService: UserService) {}
+
   @Get('/users')
   getAll(): string {
     return 'This action returns all users';
@@ -21,7 +27,11 @@ export class UsersController {
   }
 
   @Post('/users')
-  post(@Body() user: any): string {
+  @HttpCode(201)
+  async post(@Body() userDto: UserDto): Promise<string> {
+    const user: User = UserDataMapper.toEntity(userDto);
+    const res = await this.userService.createUser(user);
+    console.log({ res });
     return 'Saving user...';
   }
 

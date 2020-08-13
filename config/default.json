@@ -1,20 +1,18 @@
 {
-    "app": {
-        "port": 3000,
-        "name": "koajs"
-    },
-    "security": {
-        "secret": "SUPER_SECRET",
-        "hashingRounds": 7
-    },
-    "db": {
-        "host": "localhost",
-        "port": 27017,
-        "name": "koajs",
-        "dropSchema": false,
-        "loggerActive": true
-    },
-    "logger": {
-        "loggerActive": true
-    }
+  "app": {
+    "port": 3000,
+    "name": "koajs"
+  },
+  "security": {
+    "secret": "SUPER_SECRET",
+    "hashingRounds": 7
+  },
+  "db": {
+    "host": "localhost",
+    "port": 5432,
+    "name": "chat_test"
+  },
+  "logger": {
+    "loggerActive": true
+  }
 }

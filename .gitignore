@@ -8,5 +8,6 @@ node_modules/
 /importData
 
 .env-dev
+.env
 .DS_store
 yarn-error.log 
