@@ -26,6 +26,7 @@ export class Application {
       useTypeOrmContainer(Container);
 
       this.databaseConnection = await DatabaseConnection.create();
+      console.log(this.databaseConnection);
 
       const app = await createKoaServer({
         controllers: [UsersController],
