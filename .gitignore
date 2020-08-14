@@ -6,7 +6,7 @@ node_modules/
 /log/
 /coverage
 /importData
-
+/dist/
 .env-dev
 .env
 .DS_store
