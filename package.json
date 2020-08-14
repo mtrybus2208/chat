@@ -6,7 +6,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "build": "tsc",
+    "build-ts": "tsc",
+    "postinstall": "yarn run build-ts",
     "serve": "ts-node ./src/app.ts",
     "start": "set NODE_ENV=development&&nodemon ./src/app.ts",
     "test": "set NODE_ENV=test&&mocha -r ts-node/register './**/*.spec.ts' --exit --timeout 15000",
