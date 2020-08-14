@@ -35,7 +35,7 @@ export class Application {
       });
       app.use(cors());
 
-      this.appContext = app.listen(port, () => {
+      this.appContext = app.listen(env.get('PORT').asPortNumber() || 5000, () => {
         console.log(`${appName} server runs on port ${port}`);
       });
     } catch (e) {
