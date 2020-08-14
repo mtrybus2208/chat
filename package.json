@@ -14,7 +14,7 @@
     "test-unit": "set NODE_ENV=test&&mocha -r ts-node/register './src/**/*.spec.ts' --exit --timeout 15000",
     "test-integration": "set NODE_ENV=test&&mocha -r ts-node/register './test/**/*.spec.ts' --exit --timeout 15000",
     "lint": "npx eslint **/*.ts",
-    "production": "set NODE_ENV=production&&node dist/app.js"
+    "production": "set NODE_ENV=prod&&node dist/app.js"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
