@@ -10,6 +10,7 @@ import * as env from 'env-var';
 import { ErrorHandlerMiddleware } from '../middleware/ErrorHandlerMiddleware';
 import { databaseconfig } from './databaseConfig';
 import { UsersController } from '../controller/UsersController';
+import { DatabaseConnection } from '../lib/helpers/databaseConnection';
 
 export class Application {
   public appContext: any;
@@ -24,12 +25,7 @@ export class Application {
       useContainer(Container);
       useTypeOrmContainer(Container);
 
-      this.databaseConnection = await createConnection(
-        databaseconfig({
-          dbPassword: env.get('DB_PASS').asString(),
-          dbUSer: env.get('DB_USER').asString(),
-        }),
-      );
+      this.databaseConnection = await DatabaseConnection.create();
 
       const app = await createKoaServer({
         controllers: [UsersController],
