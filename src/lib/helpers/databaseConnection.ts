@@ -1,8 +1,13 @@
 import { createConnection, Connection } from 'typeorm';
 import * as env from 'env-var';
+import * as config from 'config';
 
 export class DatabaseConnection {
   static create(): Promise<Connection> {
+    const entities: string[] = config.get('typeorm.entities');
+    const migrations: string[] = config.get('typeorm.migrations');
+    const subscribers: string[] = config.get('typeorm.subscribers');
+
     return createConnection({
       type: 'postgres',
       host: env.get('DB_HOST').asString(),
@@ -12,9 +17,9 @@ export class DatabaseConnection {
       password: env.get('DB_PASS').asString(),
       synchronize: true,
       logging: true,
-      entities: ['src/entity/**/*.ts'],
-      migrations: ['src/migration/**/*.ts'],
-      subscribers: ['src/subscriber/**/*.ts'],
+      entities: entities,
+      migrations: migrations,
+      subscribers: subscribers,
 
       cli: {
         entitiesDir: 'src/entity',

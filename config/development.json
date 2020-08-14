@@ -1,18 +1,14 @@
 {
   "app": {
     "port": 5000,
-    "name": "koajs-dev"
-  },
-  "security": {
-    "secret": "SUPER_SECRET",
-    "hashingRounds": 7
-  },
-  "db": {
-    "host": "localhost",
-    "port": 5432,
-    "name": "chat_test1"
+    "name": "chat app"
   },
   "logger": {
     "loggerActive": true
+  },
+  "typeorm": {
+    "entities": ["src/entity/**/*.ts"],
+    "migrations": ["src/migration/**/*.ts"],
+    "subscribers": ["src/subscriber/**/*.ts"]
   }
 }

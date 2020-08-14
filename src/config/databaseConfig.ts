@@ -16,9 +16,9 @@ export const databaseconfig = (credentials: DatabaseCredentials): ConnectionOpti
   password: credentials.dbPassword,
   synchronize: true,
   logging: true,
-  entities: ['src/entity/**/*.ts'],
-  migrations: ['src/migration/**/*.ts'],
-  subscribers: ['src/subscriber/**/*.ts'],
+  entities: ['src/entity/**/*.js'],
+  migrations: ['src/migration/**/*.js'],
+  subscribers: ['src/subscriber/**/*.js'],
   cli: {
     entitiesDir: 'src/entity',
     migrationsDir: 'src/migration',
